@@ -4,9 +4,9 @@ plugins {
 }
 
 group 'com.luigivampa92.remoteandroidbuilds'
-version '0.4.0'
+version '0.4.1'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 1.8  // todo fix to 11 ?
 targetCompatibility = 1.8
 
 repositories {
@@ -30,13 +30,14 @@ intellij {
     pluginName = 'SkyForge'
     type = 'AI'
     version = 'AI-213.7172.25.2113.9014738'
+//    version = 'AI-241.14494.158.2411.11648550'
     plugins = ['android']
 }
 
 patchPluginXml {
     version = rootProject.version
     sinceBuild = "213"
-    untilBuild = "223.*"
+    untilBuild = "241.*"
     pluginDescription = file("extra/pluginDescription.html").text
     changeNotes = file("extra/pluginChangeNotes.html").text
 }

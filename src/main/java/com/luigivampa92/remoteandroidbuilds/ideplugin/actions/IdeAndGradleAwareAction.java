@@ -40,7 +40,8 @@ public abstract class IdeAndGradleAwareAction extends AnAction {
         Project project = e.getProject();
         if (project != null) {
             boolean ideIsAndroidStudio = getIdeInfo().isAndroidStudio();
-            boolean projectIsBuiltWithGradle = GradleProjectInfo.getInstance(project).isBuildWithGradle();
+//            boolean projectIsBuiltWithGradle = GradleProjectInfo.getInstance(project).isBuildWithGradle();
+            boolean projectIsBuiltWithGradle = true;
             return ideIsAndroidStudio && projectIsBuiltWithGradle;
         } else {
             return false;

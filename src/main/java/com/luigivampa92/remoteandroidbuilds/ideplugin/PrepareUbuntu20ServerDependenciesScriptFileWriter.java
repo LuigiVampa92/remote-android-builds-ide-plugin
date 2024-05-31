@@ -77,7 +77,7 @@ public final class PrepareUbuntu20ServerDependenciesScriptFileWriter {
     }
 
     private String getJdkDepValue() {
-        return "openjdk-11-jdk";  // todo ?
+        return "openjdk-17-jdk";  // todo take the actual version !
     }
 
     public final void write(File targetFile, RemoteBuildsConfiguration configuration, Collection<String> serverSdkManagerDependencies) throws IOException {

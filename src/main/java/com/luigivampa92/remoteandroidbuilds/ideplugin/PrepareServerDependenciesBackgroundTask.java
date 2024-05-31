@@ -69,7 +69,7 @@ public final class PrepareServerDependenciesBackgroundTask extends Task.Backgrou
             String pushScriptToServerCommandTemplate = "scp %s %s:~/%s";
             String osAwarePath = FileManager.fixFilePathForWindowsCygwin(scriptLocalPath);
             String pushScriptToServer = String.format(pushScriptToServerCommandTemplate, osAwarePath, configuration.getSshAlias(), scriptFileNameOnServer);
-            ShellExecutionResult pushResult = shellExecutor.execute(pushScriptToServer, 6000);
+            ShellExecutionResult pushResult = shellExecutor.execute(pushScriptToServer, 15000);
             if (pushResult.getExitCode() != 0) {
                 throw new RuntimeException("Failed to push setup script to the server");
             }
@@ -78,7 +78,7 @@ public final class PrepareServerDependenciesBackgroundTask extends Task.Backgrou
 
             String chmodCommandTemplate = "ssh %s chmod +x ~/%s";
             String chmodCommand = String.format(chmodCommandTemplate, configuration.getSshAlias(), scriptFileNameOnServer);
-            ShellExecutionResult chmodResult = shellExecutor.execute(chmodCommand, 4500);
+            ShellExecutionResult chmodResult = shellExecutor.execute(chmodCommand, 15000);
             if (chmodResult.getExitCode() != 0) {
                 throw new RuntimeException("Failed to set file parameters to the script on the server");
             }

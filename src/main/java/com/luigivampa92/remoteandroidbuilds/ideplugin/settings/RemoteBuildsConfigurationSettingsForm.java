@@ -1,5 +1,6 @@
 package com.luigivampa92.remoteandroidbuilds.ideplugin.settings;
 
+import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.luigivampa92.remoteandroidbuilds.ideplugin.services.RemoteBuildsConfiguration;
 import org.jetbrains.annotations.Nullable;
@@ -28,8 +29,8 @@ public final class RemoteBuildsConfigurationSettingsForm extends DialogWrapper {
     private JLabel sdkDependenciesDescriptionLabel;
     private JCheckBox extraDependenciesRequiredCheckBox;
 
-    public RemoteBuildsConfigurationSettingsForm() {
-        super(null);
+    public RemoteBuildsConfigurationSettingsForm(Project project) {
+        super(project);
         init();
         proxyRequiredCheckBox.addItemListener(e -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {

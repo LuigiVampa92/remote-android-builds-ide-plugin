@@ -13,7 +13,11 @@
         <applicationService
                 serviceInterface="com.luigivampa92.remoteandroidbuilds.ideplugin.services.RemoteBuildConfigurationService"
                 serviceImplementation="com.luigivampa92.remoteandroidbuilds.ideplugin.services.RemoteBuildConfigurationServicePersistentStateImpl" />
-        <applicationConfigurable parentId="build" instance="com.luigivampa92.remoteandroidbuilds.ideplugin.settings.RemoteBuildsConfigurationSettings" />
+        <applicationConfigurable
+                id="com.luigivampa92.remoteandroidbuilds.ideplugin.settings.RemoteBuildsConfigurationSettings"
+                instance="com.luigivampa92.remoteandroidbuilds.ideplugin.settings.RemoteBuildsConfigurationSettings"
+                parentId="build"
+                displayName="Remote Builds" />
     </extensions>
 
     <actions>

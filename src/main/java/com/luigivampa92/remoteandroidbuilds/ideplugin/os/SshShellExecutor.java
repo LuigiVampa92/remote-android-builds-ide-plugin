@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 public final class SshShellExecutor {
 
-    private final long PROCESS_AWAITING_TIMEOUT_MS = 5500L;
+    private final long PROCESS_AWAITING_TIMEOUT_MS = 15000L;
 
     public ShellExecutionResult execute(String command, String lineDelimiter) {
         Process process = null;

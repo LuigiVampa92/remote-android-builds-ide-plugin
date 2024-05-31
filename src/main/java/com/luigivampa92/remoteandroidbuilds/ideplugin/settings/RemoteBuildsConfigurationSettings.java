@@ -2,6 +2,7 @@ package com.luigivampa92.remoteandroidbuilds.ideplugin.settings;
 
 import com.intellij.openapi.options.Configurable;
 import com.intellij.openapi.options.ConfigurationException;
+import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.NlsContexts;
 import com.luigivampa92.remoteandroidbuilds.ideplugin.ServiceLocator;
 import com.luigivampa92.remoteandroidbuilds.ideplugin.services.RemoteBuildConfigurationService;
@@ -12,13 +13,20 @@ import javax.swing.*;
 
 public final class RemoteBuildsConfigurationSettings implements Configurable {
 
+    private Project project;
     private RemoteBuildConfigurationService configurationService = ServiceLocator.getInstance().getRemoteBuildConfigurationService();
     private RemoteBuildsConfigurationSettingsForm configurationForm;
     private RemoteBuildsConfiguration initialConfiguration;
 
+    public RemoteBuildsConfigurationSettings() {}
+
+    public RemoteBuildsConfigurationSettings(Project project) {
+        this.project = project;
+    }
+
     @Override
     public @Nullable JComponent createComponent() {
-        configurationForm = new RemoteBuildsConfigurationSettingsForm();
+        configurationForm = new RemoteBuildsConfigurationSettingsForm(project);
         return configurationForm.createCenterPanel();
     }
 

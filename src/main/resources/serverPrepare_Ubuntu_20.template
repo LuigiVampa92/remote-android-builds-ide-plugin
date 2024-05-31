@@ -64,7 +64,7 @@ echoLog 'Variables are not yet set. Setting up.'
 cat <<EOF >> $DIR_USER/$FILE_ENV_VARS
 #!/bin/bash
 
-JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
 ANDROID_HOME="$DIR_USER/$DIR_ANDROID_SDK"
 ANDROID_SDK_ROOT="$DIR_USER/$DIR_ANDROID_SDK"
 

@@ -66,13 +66,13 @@ public final class SshExecutorImpl implements SshExecutor {
             } else {
                 commandPrepareAndroidDebugKeystoreFolder = String.format(CMD_TEMPLATE_SSH_PREPARE_DEBUG_KEYSTORE_FOLDER_USER_NORMAL, getSshExecutableValueForPlatform(), sshAlias, user);
             }
-            ShellExecutionResult prepareAndroidDebugKeystoreFolderResult = shellExecutor.execute(commandPrepareAndroidDebugKeystoreFolder, 4500);
+            ShellExecutionResult prepareAndroidDebugKeystoreFolderResult = shellExecutor.execute(commandPrepareAndroidDebugKeystoreFolder, 15000);
             if (prepareAndroidDebugKeystoreFolderResult.getExitCode() != 0) {
                 return false;
             }
             String osAwareAndroidDebugKeystoreFile = FileManager.fixFilePathForWindowsCygwin(androidDebugKeystoreFile);
             String commandTransferAndroidKeystore = String.format(CMD_TEMPLATE_SCP_UPLOAD_DEBUG_KEYSTORE, getScpExecutableValueForPlatform(), osAwareAndroidDebugKeystoreFile, sshAlias);
-            ShellExecutionResult result = shellExecutor.execute(commandTransferAndroidKeystore, 6000);
+            ShellExecutionResult result = shellExecutor.execute(commandTransferAndroidKeystore, 15000);
             return result.getExitCode() == 0;
         } else {
             return false;

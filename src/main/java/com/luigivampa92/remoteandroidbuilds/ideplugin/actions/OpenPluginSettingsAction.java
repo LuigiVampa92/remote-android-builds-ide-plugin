@@ -26,7 +26,7 @@ public final class OpenPluginSettingsAction extends IdeAndGradleAwareAction {
     }
 
     private void openPluginSettings(Project project) {
-        RemoteBuildsConfigurationSettings settings = new RemoteBuildsConfigurationSettings();
+        RemoteBuildsConfigurationSettings settings = new RemoteBuildsConfigurationSettings(project);
         ShowSettingsUtil.getInstance().editConfigurable(project, settings);
     }
 }

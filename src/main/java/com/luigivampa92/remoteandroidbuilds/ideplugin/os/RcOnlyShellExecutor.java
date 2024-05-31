@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 public final class RcOnlyShellExecutor {
 
-    private final int PROCESS_AWAITING_TIMEOUT_MS = 3000;
+    private final int PROCESS_AWAITING_TIMEOUT_MS = 15000;
 
     public synchronized ShellExecutionResult execute(String command) {
         return execute(command, PROCESS_AWAITING_TIMEOUT_MS);
